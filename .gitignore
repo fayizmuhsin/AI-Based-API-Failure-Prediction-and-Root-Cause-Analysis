@@ -1,0 +1,31 @@
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+# Node.js
+node_modules/
+frontend/dist/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Local data and generated evaluation results
+data/*
+!data/**/.gitkeep
+evaluation_output/
+
+# Temporary files
+*.tmp
+*.log
