@@ -1,0 +1,33 @@
+{
+  "scenarios": [
+    {
+      "id": "database_connection_failure",
+      "description": "Simulate an unavailable application database connection.",
+      "faults": [
+        { "target": "database-service", "mode": "database_connection_failure" }
+      ]
+    },
+    {
+      "id": "api_latency_injection",
+      "description": "Add bounded latency to User Service business requests.",
+      "faults": [
+        { "target": "user-service", "mode": "latency_injection" }
+      ]
+    },
+    {
+      "id": "upstream_service_unavailable",
+      "description": "Return controlled service-unavailable responses from User Service business routes.",
+      "faults": [
+        { "target": "user-service", "mode": "service_unavailable" }
+      ]
+    },
+    {
+      "id": "cascading_service_failure",
+      "description": "Fail Database Service and exercise the configured dependency chain through API Gateway.",
+      "faults": [
+        { "target": "database-service", "mode": "database_connection_failure" }
+      ],
+      "exercise_cascade": true
+    }
+  ]
+}

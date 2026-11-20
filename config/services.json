@@ -1,0 +1,15 @@
+{
+  "services": [
+    { "id": "api-gateway", "name": "API Gateway", "role": "gateway" },
+    { "id": "user-service", "name": "User Service", "role": "application" },
+    { "id": "order-service", "name": "Order Service", "role": "application" },
+    { "id": "database-service", "name": "Database Service", "role": "simulated-database" }
+  ],
+  "dependencies": [
+    { "caller": "api-gateway", "dependency": "user-service" },
+    { "caller": "api-gateway", "dependency": "order-service" },
+    { "caller": "order-service", "dependency": "user-service" },
+    { "caller": "user-service", "dependency": "database-service" },
+    { "caller": "order-service", "dependency": "database-service" }
+  ]
+}
