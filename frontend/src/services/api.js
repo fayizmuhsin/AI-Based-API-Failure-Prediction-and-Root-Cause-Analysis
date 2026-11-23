@@ -48,7 +48,7 @@ export const fetchInvestigationCandidates = (id, signal) =>
 
 export function fetchServiceHealth(service, signal) {
   const started = performance.now()
-  return fetchJson(`http://127.0.0.1:${service.port}/health`, signal).then((result) => ({
+  return fetchJson(apiUrl(`/services/${encodeURIComponent(service.id)}/health`), signal).then((result) => ({
     ...result,
     response_time_ms: performance.now() - started,
   }))
